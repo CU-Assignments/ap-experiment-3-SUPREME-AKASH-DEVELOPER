@@ -1,0 +1,37 @@
+### Aim:
+To merge two sorted linked lists into a single sorted linked list by splicing the nodes together.
+
+### Objectives:
+1.Compare the nodes of both lists and append the smaller one to the merged list.
+2.Maintain the sorted order while merging.
+3.Handle edge cases where one or both lists are empty.
+4.Ensure an O(n) time complexity and O(1) space complexity solution.
+
+
+### Code:
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* a, ListNode* b) {
+       //AKASH_22BET10018
+       ListNode* c=new ListNode(100);
+       ListNode* temp=c;
+       while(a!=NULL && b!=NULL)
+       {
+        if(a->val<=b->val)
+        {
+            temp->next=a;
+            a=a->next;
+            temp=temp->next;
+        }
+        else{
+            //b->val<a->val
+            temp->next=b;
+            b=b->next;
+            temp=temp->next;
+        }
+       } 
+       if(a==NULL)temp->next=b;
+       else temp->next=a;
+       return c->next;
+    }
+};
