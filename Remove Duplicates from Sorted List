@@ -1,0 +1,27 @@
+### Remove Duplicates from Sorted List
+
+### Aim:  
+To implement an algorithm that removes duplicate elements from a sorted singly linked list while maintaining the sorted order.  
+
+### Objectives:  
+1. Traverse the linked list while checking for duplicate values.  
+2. Modify the `next` pointers to skip duplicate nodes.  
+3. Ensure the linked list remains sorted after removing duplicates.  
+4. Optimize the solution to run in O(n) time complexity** with O(1) extra space.
+
+### Code:
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+    //AKASH_22BET10018
+        ListNode* current = head;
+        while (current && current->next) {
+            if (current->val == current->next->val) {
+                current->next = current->next->next;
+            } else {
+                current = current->next;
+            }
+        }
+        return head;
+    }
+};
