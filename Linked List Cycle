@@ -1,0 +1,28 @@
+### Aim:  
+To determine if a given **linked list** contains a cycle.  
+
+### Objectives:
+- Detect cycles in a linked list by tracking visited nodes.  
+- Use Floyd’s Cycle Detection Algorithm (fast and slow pointers) for an efficient solution.  
+- Optimize space complexity to O(1) by avoiding additional data structures.
+
+### Code:
+class Solution {
+public:
+    bool hasCycle(ListNode* head) {
+        //AKASH_22BET10018
+        if (head == NULL || head->next == NULL) {
+            return false;
+        }
+        ListNode* slow = head;
+        ListNode* fast = head->next;
+        while (fast != slow) {
+            if (fast->next == NULL || fast->next->next == NULL) {
+                return false;
+            }
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return true;
+    }
+};
