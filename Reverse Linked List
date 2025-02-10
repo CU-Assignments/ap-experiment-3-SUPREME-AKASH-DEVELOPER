@@ -1,0 +1,27 @@
+### Reverse Linked List
+
+### Aim:  
+To implement an algorithm that reverses a given singly linked list and returns the new head of the reversed list.  
+
+### Objectives:  
+1. Traverse the linked list while reversing the `next` pointers.  
+2. Implement both iterative and recursive approaches.  
+3. Ensure the solution runs efficiently within O(n) time complexity and O(1) extra space (for iterative).  
+4. Maintain the integrity of the linked list structure after reversal.  
+
+### Code:
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* node = nullptr;
+
+        while (head != nullptr) {
+            ListNode* temp = head->next;
+            head->next = node;
+            node = head;
+            head = temp;
+        }
+
+        return node;        
+    }
+};
