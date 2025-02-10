@@ -1,0 +1,28 @@
+### Aim:
+To remove all nodes from a sorted linked list that have duplicate values, leaving only distinct numbers in the list.  
+
+### Objectives:
+- Identify duplicate nodes in the sorted linked list.  
+- Skip over duplicate nodes so that only unique elements remain.  
+- Maintain the original sorted order** in the modified list.
+
+### Code:
+class Solution {
+ public:
+  ListNode* deleteDuplicates(ListNode* head) {
+    //AKASH_22BET10018
+    ListNode dummy(0, head);
+    ListNode* prev = &dummy;
+    while (head) {
+      while (head->next && head->val == head->next->val)
+        head = head->next;
+      if (prev->next == head)
+        prev = prev->next;
+      else
+        prev->next = head->next;
+      head = head->next;
+    }
+
+    return dummy.next;
+  }
+};
