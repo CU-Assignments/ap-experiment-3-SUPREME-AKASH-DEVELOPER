@@ -1,5 +1,14 @@
 ### Print Linked List
 
+## Aim:
+To develop a program that traverses a given singly linked list and prints all its elements in a single line, separated by spaces.
+
+## Objectives:
+1. Understand the structure of a singly linked list.
+2. Implement a function to iterate through the list.
+3. Print each node’s value in the correct format.
+4. Ensure the program works efficiently within the given constraints.
+
 ## Code :
 class Solution {
   public:
@@ -12,5 +21,3 @@ class Solution {
         }
     }
 };
-
-## Output:
