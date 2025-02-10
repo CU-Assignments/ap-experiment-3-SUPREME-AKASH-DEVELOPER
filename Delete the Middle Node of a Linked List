@@ -1,0 +1,29 @@
+### Aim:
+To delete the middle node of a given singly linked list and return the modified linked list.  
+
+### Objectives:
+1. Find the middle node using the slow and fast pointer approach.  
+2. Remove the middle node by modifying the `next` pointer of the previous node.  
+3. Handle edge cases where the list has only one node (return `nullptr`).  
+4. Ensure an O(n) time complexity and O(1) space complexity solution.  
+
+### Code:
+class Solution {
+public:
+    ListNode* deleteMiddle(ListNode* head) {
+        if (head == NULL || head->next == NULL){
+            return NULL;
+        }
+        //AKASH_22BET10018
+        ListNode* slow = head;
+        ListNode* fast = head;
+        fast = head->next->next;
+        while (fast!= NULL && fast-> next!= NULL) {
+            slow = slow->next;
+            fast= fast->next->next;
+        }
+        slow->next = slow->next->next;
+        return head;
+        
+    }
+};
