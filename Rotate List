@@ -1,0 +1,37 @@
+### Aim:  
+To rotate a singly linked list to the right by k positions.  
+
+### Objectives:
+- Determine the effective rotation by handling cases where `k` is greater than the length of the list.  
+- Make the list circular and then break it at the correct position to form the rotated list.  
+- Preserve the relative order of the remaining elements after rotation.  
+- Optimize for O(n) time complexity while keeping O(1) extra space usage.
+
+### Code:
+class Solution {
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+        if (!head){
+            return head;
+        }
+        //AKASH_22BET10018
+        int length=1;
+        ListNode* tail=head;
+        ListNode* cur=head;
+        while (tail->next){
+            tail=tail->next;
+            length++;
+        }
+        k=k%length;
+        if (k==0){
+            return head;
+        }
+        for(int i=0;i<length-k-1;i++){
+            cur=cur->next;
+        }
+        ListNode* newh=cur->next;
+        cur->next=nullptr;
+        tail->next=head;
+        return newh;
+    }
+};
