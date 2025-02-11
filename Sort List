@@ -1,0 +1,29 @@
+### Aim:  
+To sort a given singly linked list in ascending order efficiently.
+
+### Objectives:
+- Efficient sorting of a linked list in O(n log n) time complexity.  
+- Use Merge Sort or Quick Sort since they are optimal for linked lists.  
+- Ensure in-place sorting with minimal extra space (preferably O(1) space).  
+- Handle edge cases, such as an empty list or a list with negative numbers.
+
+### Code:
+class Solution {
+public:     
+    ListNode* sortList(ListNode* head) {    
+        //AKASH_22BET10018
+        vector<int> arr;         
+        ListNode* temp = head;                  
+        while(temp != nullptr){             
+            arr.push_back(temp->val);             
+            temp = temp->next;         
+        }                  
+        sort(arr.begin(), arr.end());                  
+        temp = head;         
+        for(int i = 0; temp != nullptr; i++){             
+            temp->val = arr[i];             
+            temp = temp->next;         
+        }              
+        return head;              
+    } 
+};
